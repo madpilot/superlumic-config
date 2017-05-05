@@ -1,0 +1,13 @@
+---
+- name: "[Docker] Create .docker directory"
+  file: path="{{ home_dir }}/.docker" state=directory
+
+- name: "[Docker] Install Docker for Mac"
+  homebrew_cask: name=docker state=present
+
+- name: "[Docker] Check for First run"
+  command: open /Applications/Docker.app
+          creates=/usr/local/bin/docker
+
+- name: "[Docker] Waiting for first run setup to complete"
+  wait_for: path=/usr/local/bin/docker

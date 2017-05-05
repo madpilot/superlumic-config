@@ -1,0 +1,38 @@
+---
+
+- name: Check for FileVault Full Disk Encryption
+  command: fdesetup status
+  become: yes
+  register: fde_status
+
+- name: Abort if Disk not encrypted
+  fail: msg="Sorry, Please turn on FileVault Full Disk Encryption before proceeding"
+  when: fde_status.stdout != "FileVault is On."
+
+- name: Copy superlumic script into /usr/local/bin
+  template: src=superlumic.sh.j2
+            dest=/usr/local/bin/superlumic
+            mode=0775
+
+- name: install cask applications for all users
+  homebrew_cask: name={{item}} state=present
+  with_items:
+		- dropbox
+		- 1password
+    - google-drive
+    - google-chrome
+    - slack
+
+- name: install general brew applications
+  homebrew: name={{item}} state=latest
+  with_items:
+    - bash-completion
+    - the_silver_searcher
+    - ack
+    - gnu-tar
+    - git
+    - git-extras
+
+- name: Disable Guest User
+  command: defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool NO
+  become: yes

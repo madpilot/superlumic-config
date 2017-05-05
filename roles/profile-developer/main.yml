@@ -1,0 +1,20 @@
+- name: "[Developer] Install developer brew applications"
+  homebrew: name={{item}} state=latest
+  with_items:
+    - direnv
+    - wget
+    - pwgen
+    - httpie
+    - watch
+    - rsync
+    - awscli
+
+- name: "[Developer] Install developer cask applications"
+  homebrew_cask: name={{item}} state=present
+  with_items:
+    - gpgtools
+    - dash
+    - iterm2
+
+- name: Write out gitconfig
+  template: src=gitconfig.j2 dest={{ home_dir }}/.gitconfig
