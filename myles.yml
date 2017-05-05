@@ -4,7 +4,7 @@
   connection: local
 
   vars:
-		- superlimic_config_repo: https://github.com/madpilot/superlumic-config.git
+    - superlimic_config_repo: https://github.com/madpilot/superlumic-config.git
     - user_name: myles
     - computername: myles-macbookpro
     - home_dir: "/Users/{{ user_name }}/"
@@ -20,19 +20,19 @@
     # github_auth_token
     # apple_id_password 
 
-	roles:
+  roles:
     - { role: profile-all, tags: base }
     - { role: profile-developer, tags: base-dev }
-		- { role: docker, tags: docker }
-	
-	tasks:
-		- name: Download dotfiles
+    - { role: docker, tags: docker }
+  
+  tasks:
+    - name: Download dotfiles
       git: repo=git@github.com:madpilot/dotfiles.git
            dest="{{ home_dir }}/.dotfiles"
            update=yes
 
-		- name: Setup dotfiles
-			command: {{ home_dir}}/.dotfiles/setup
+    - name: Setup dotfiles
+      command: {{ home_dir}}/.dotfiles/setup
 
     - name: homebrew taps
       homebrew_tap: tap={{ item }} state=present
@@ -42,30 +42,30 @@
     - name: install personal cask applications
       homebrew_cask: name={{item}} state=present
       with_items:
-				- alfred
-				- sonos
+        - alfred
+        - sonos
         - spotify
-				- yubikey-personalization-gui
+        - yubikey-personalization-gui
         - yubiswitch
         - yubikey-neo-manager
         - yubikey-piv-manager
 
-		- name: install personal brew applications
+    - name: install personal brew applications
       homebrew: name={{item}} state=latest
       with_items:
         - mas
-				- wireshark
+        - wireshark
 
-		- name: "[App Store] See which apps are already installed"
+    - name: "[App Store] See which apps are already installed"
       command: bash -c "mas list | cut -f 1 -d ' '"
       register: mas_list
 
-		- name: "[App Store] Install Mac App Store applications"
+    - name: "[App Store] Install Mac App Store applications"
       command: mas install {{ item.id }}
       when: item.id not in mas_list.stdout_lines
       with_items:
-				- { id: "406056744", name: "Evernote" }	
-				- { id: "409183694", name: "Keynote" }
+        - { id: "406056744", name: "Evernote" } 
+        - { id: "409183694", name: "Keynote" }
         - { id: "405399194", name: "Kindle" }
         - { id: "408981381", name: "iPhoto" }
         - { id: "407963104", name: "Pixelmator" }
