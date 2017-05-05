@@ -32,7 +32,7 @@
            update=yes
 
     - name: Setup dotfiles
-      command: {{ home_dir}}/.dotfiles/setup
+      command: "{{ home_dir}}/.dotfiles/setup"
 
     - name: homebrew taps
       homebrew_tap: tap={{ item }} state=present
