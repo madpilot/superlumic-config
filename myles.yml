@@ -1,0 +1,21 @@
+---
+
+- hosts: localhost
+  connection: local
+
+  vars:
+		- superlimic_config_repo: https://github.com/madpilot/superlumic-config.git
+    - user_name: myles
+    - computername: myles-macbookpro
+    - home_dir: "/Users/{{ user_name }}/"
+    - user_email: myles@madpilot.com.au
+    - github_user_name: madpilot
+    - git_user_name: Myles Eftos
+    - git_user_email: "{{ user_email }}"
+    - git_signing_key: A199061400C9C8B0
+    - apple_id_email: myles@madpilot.com.au
+    - project_dir: "{{ home_dir }}/Projects/"
+    - settings_export_dir: "{{ home_dir }}/tmp/SettingsExports"
+    # Set these in secrets file:
+    # github_auth_token
+    # apple_id_password 

@@ -1,0 +1,13 @@
+ ---
+osx_defaults:
+  - { domain: "com.apple.dock", key: "autohide", type: boolean, value: false }
+  - { domain: "com.apple.dock", key: "checked-for-launchpad", type: boolean, value: true }
+  - { domain: "com.apple.dock", key: "largesize", type: float, value: 40.59259033203125 }
+  - { domain: "com.apple.dock", key: "magnification", type: boolean, value: true }
+
+  - { domain: "NSGlobalDomain", type: "float",   key: "com.apple.mouse.scaling", value: 3 }
+  - { domain: "NSGlobalDomain", type: "float",   key: "com.apple.swipescrolldirection", value: 1 }
+
+  # Require password immediately after sleep or screen saver begins
+  - { domain: "com.apple.screensaver", key: "askForPassword", type: int, value: 1 }
+  - { domain: "com.apple.screensaver", key: "askForPasswordDelay", type: int, value: 0 }
