@@ -42,5 +42,5 @@
   become: yes
 
 - name: "[Spectacle] Copy Shortcut file"
-  copy: src="Spectacle/Shortcuts.json"
-        dest="{{home_dir}/Library/Application Shortcuts/Spectacle"
+  copy: src=Spectacle/Shortcuts.json
+        dest={{home_dir}/Library/Application\ Shortcuts/Spectacle
