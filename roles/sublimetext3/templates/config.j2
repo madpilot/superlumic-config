@@ -1,29 +1,59 @@
----
-- name: "[Sublime Text 3] tap caskroom/versions"
-  homebrew_tap: tap=caskroom/versions state=present
+{
+    "color_scheme": "Packages/Theme - Cobalt2/cobalt2.tmTheme",
+    "theme": "Cobalt2.sublime-theme",
 
-- name: "[Sublime Text 3] Install"
-  homebrew_cask: name=sublime-text state=present
+    "tab_size": 2,
+    "translate_tabs_to_spaces": true,
+    "trim_trailing_white_space_on_save": true,
+    "trim_automatic_white_space": true,
+    "draw_white_space": "selection",
+    "draw_minimap_border": true,
+    "ensure_newline_at_eof_on_save": true,
 
-- name: "[Sublime Text 3] create directories"
-  file:
-    path: "{{item}}"
-    state: directory
-    recurse: yes
-  with_items:
-    - ~/Library/Application Support/Sublime Text 3
-    - ~/Library/Application Support/Sublime Text 3/Packages
-    - ~/Library/Application Support/Sublime Text 3/Packages/User
-    - ~/Library/Application Support/Sublime Text 3/Installed Packages
+    "auto_complete": true,
+    "auto_complete_commit_on_tab": true,
+    "auto_complete_with_fields": true,
 
-- name: "[Sublime Text 3] download package control"
-  get_url:
-    url: "http://sublime.wbond.net/Package%20Control.sublime-package"
-    dest: "~/Library/Application Support/Sublime Text 3/Installed Packages/Package Control.sublime-package"
+    "bold_folder_labels": true,
+    "caret_style": "phase",
 
-- name: "[Sublime Text 3] get and update all sublime plugins"
-  git: update=yes force=yes version="{{item.version}}" repo="{{item.repo}}" dest="~/Library/Application Support/Sublime Text 3/Packages/{{item.dest}}"
-  with_items: "{{ sublime_packages }}"
+    "detect_indentation": true,
 
-- name: "[Sublime Text 3] render the sublime config file"
-  template: src=config.j2 dest="~/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+    "fade_fold_buttons": false,
+    "file_exclude_patterns":
+    [
+        ".DS_Store",
+        ".gitkeep",
+        "dump.rdb"
+    ],
+    "folder_exclude_patterns":
+    [
+        ".svn",
+        ".git",
+        ".hg",
+        "CVS",
+        "tmp",
+        ".bundle",
+        ".sass-cache",
+        "log",
+        "cache",
+        "node_modules"
+    ],
+    "font_face": "Menlo",
+    "font_size": "12",
+    "font_options":
+    [
+        "subpixel_antialias"
+    ],
+    "highlight_line": true,
+    "highlight_modified_tabs": true,
+    "hot_exit": false,
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    "line_padding_bottom": 1,
+    "line_padding_top": 1,
+    "save_on_focus_lost": true,
+    "scroll_past_end": true,
+}
