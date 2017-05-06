@@ -5,7 +5,6 @@
     - bash-completion
     - binutils
     - curl
-    - curl-ca-bundle
     - dos2unix
     - direnv
     - httpie
@@ -31,3 +30,15 @@
 
 - name: Write out gitconfig
   template: src=gitconfig.j2 dest={{ home_dir }}/.gitconfig
+
+
+- name: "[Developer] Install completions"
+  homebrew: name={{item}} state=latest
+  with_items:
+    - docker-compose-completion
+    - gem-completion
+    - mix-completion
+    - rails-completion
+    - rake-completion
+    - ruby-completion
+    - bundler-completion
