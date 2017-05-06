@@ -40,3 +40,6 @@
 - name: Disable Guest User
   command: defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool NO
   become: yes
+
+- name: "[Spectacle] Copy Shortcut file"
+  copy: src=Spectacle/Shortcuts.json dest="{{ home_dir }/Library/Application Shortcuts/Spectacle"
