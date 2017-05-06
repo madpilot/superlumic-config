@@ -1,13 +1,24 @@
 - name: "[Developer] Install developer brew applications"
   homebrew: name={{item}} state=latest
   with_items:
-    - direnv
-    - wget
-    - pwgen
-    - httpie
-    - watch
-    - rsync
     - awscli
+    - bash-completion
+    - binutils
+    - curl
+    - curl-ca-bundle
+    - dos2unix
+    - direnv
+    - httpie
+    - jq
+    - ncftp
+    - phantomjs
+    - pwgen
+    - rsync
+    - tmux
+    - unrar
+    - wakeonlan
+    - watch
+    - wget
 
 - name: "[Developer] Install developer cask applications"
   homebrew_cask: name={{item}} state=present
