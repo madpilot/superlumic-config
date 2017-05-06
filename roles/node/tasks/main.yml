@@ -5,7 +5,7 @@
   with_items:
     - node
     - nvm
-		- yarn
+    - yarn
 
 - name: create nvm directory
   file:
