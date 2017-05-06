@@ -28,6 +28,7 @@
     - { role: node, tags: nodejs }
     - { role: elixir, tags: elixir }
     - { role: golang, tags: golang }
+    - { role: sublimetext3, tags: sublimetext }
   
   tasks:
     - name: Download dotfiles
