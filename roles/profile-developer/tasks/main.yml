@@ -31,6 +31,9 @@
 - name: Write out gitconfig
   template: src=gitconfig.j2 dest={{ home_dir }}/.gitconfig
 
+- name: Write out .bash_profile.local
+  copy: src="files/bash_profile.local"
+        dest="{{ home_dir }}/.bash_profile.local"
 
 - name: "[Developer] Install completions"
   homebrew: name={{item}} state=latest
