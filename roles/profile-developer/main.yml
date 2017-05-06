@@ -23,9 +23,11 @@
 - name: "[Developer] Install developer cask applications"
   homebrew_cask: name={{item}} state=present
   with_items:
-    - gpgtools
+    - charles
     - dash
+    - gpgtools
     - iterm2
+    - psequel
 
 - name: Write out gitconfig
   template: src=gitconfig.j2 dest={{ home_dir }}/.gitconfig

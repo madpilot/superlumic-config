@@ -42,9 +42,19 @@
     - name: install personal cask applications
       homebrew_cask: name={{item}} state=present
       with_items:
+        - adobe-creative-cloud
         - alfred
+        - blender
+        - fluid
+        - firefox
+        - foxtel-go
+        - handbrake
+        - microsoft-office
+        - quickcal
         - sonos
         - spotify
+        - vmware-fusion
+        - whatsapp
 #        - yubikey-personalization-gui
 #        - yubiswitch
 #        - yubikey-neo-manager
