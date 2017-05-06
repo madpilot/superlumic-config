@@ -28,11 +28,11 @@
   tasks:
     - name: Download dotfiles
       git: repo=git@github.com:madpilot/dotfiles.git
-           dest="{{ home_dir }}/.dotfiles"
+           dest="{{ home_dir }}.dotfiles"
            update=yes
 
     - name: Setup dotfiles
-      command: "{{ home_dir}}/.dotfiles/setup"
+      command: "{{ home_dir}}.dotfiles/setup.sh"
 
     - name: homebrew taps
       homebrew_tap: tap={{ item }} state=present
