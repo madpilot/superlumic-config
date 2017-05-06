@@ -32,7 +32,7 @@
            update=yes
 
     - name: Setup dotfiles
-      command: "{{ home_dir}}.dotfiles/setup.sh"
+      command: "cd {{ home_dir}}.dotfiles && setup.sh"
 
     - name: homebrew taps
       homebrew_tap: tap={{ item }} state=present
@@ -45,10 +45,10 @@
         - alfred
         - sonos
         - spotify
-        - yubikey-personalization-gui
-        - yubiswitch
-        - yubikey-neo-manager
-        - yubikey-piv-manager
+#        - yubikey-personalization-gui
+#        - yubiswitch
+#        - yubikey-neo-manager
+#        - yubikey-piv-manager
 
     - name: install personal brew applications
       homebrew: name={{item}} state=latest
