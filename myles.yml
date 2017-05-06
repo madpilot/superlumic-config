@@ -20,6 +20,10 @@
     # github_auth_token
     # apple_id_password 
 
+vars_files:
+  - vars/osx_defaults.yml
+  - vars/sublime_text_packages.yml
+
   roles:
     - { role: profile-all, tags: base }
     - { role: profile-developer, tags: base-dev }
