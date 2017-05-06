@@ -24,6 +24,7 @@
     - { role: profile-all, tags: base }
     - { role: profile-developer, tags: base-dev }
     - { role: docker, tags: docker }
+    - { role: ruby, tags: ruby }
     - { role: roderik.superlumic-node, tags: nodejs }
     - { role: elixir, tags: elixir }
     - { role: golang, tags: golang }
