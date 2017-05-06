@@ -52,6 +52,7 @@
         - microsoft-office
         - quickcal
         - sonos
+        - spectacle
         - spotify
         - vmware-fusion
         - whatsapp
@@ -88,3 +89,10 @@
         - { id: "1176895641", name: "Spark" }
         - { id: "557168941", name: "Tweetbot" }
         - { id: "402390998", name: "Linkinus" }
+
+    - name: "[Spectacle] Setup Settings"
+      file: path="{{ home_dir }}/Library/Application Support/Spectacle"" state=directory
+
+    - name: "[Spectacle] Copy Settings"
+      copy: src="files/Spectacle/Shortcuts.json"
+            dest="{{ home_dir }}/Library/Application Support/Spectacle/Shortcuts.json"

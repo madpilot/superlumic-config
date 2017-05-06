@@ -25,7 +25,6 @@
     - google-chrome
     - skype
     - slack
-    - spectacle
 
 - name: install general brew applications
   homebrew: name={{item}} state=latest
