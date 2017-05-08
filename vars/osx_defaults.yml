@@ -1,4 +1,4 @@
- ---
+---
 osx_defaults:
   - { domain: "com.apple.dock", key: "autohide", type: boolean, value: false }
   - { domain: "com.apple.dock", key: "checked-for-launchpad", type: boolean, value: true }

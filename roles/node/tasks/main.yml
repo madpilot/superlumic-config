@@ -1,0 +1,15 @@
+---
+
+- name: install node
+  homebrew: name={{item}} state=latest
+  with_items:
+    - node
+    - nvm
+    - yarn
+
+- name: create nvm directory
+  file:
+    path: "{{item}}"
+    state: directory
+  with_items:
+    - ~/.nvm

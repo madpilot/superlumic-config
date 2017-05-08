@@ -20,10 +20,19 @@
     # github_auth_token
     # apple_id_password 
 
+  vars_files:
+    - vars/osx_defaults.yml
+    - vars/sublime_text_packages.yml
+
   roles:
     - { role: profile-all, tags: base }
     - { role: profile-developer, tags: base-dev }
     - { role: docker, tags: docker }
+    - { role: ruby, tags: ruby }
+    - { role: node, tags: nodejs }
+    - { role: elixir, tags: elixir }
+    - { role: golang, tags: golang }
+    - { role: sublimetext3, tags: sublimetext }
   
   tasks:
     - name: Download dotfiles
@@ -46,6 +55,7 @@
         - alfred
         - bettertouchtool
         - blender
+        - busycal
         - fluid
         - firefox
         - microsoft-office
@@ -53,7 +63,6 @@
         - sonos
         - spectacle
         - spotify
-        - vmware-fusion
         - whatsapp
 #        - yubikey-personalization-gui
 #        - yubiswitch
@@ -86,6 +95,7 @@
         - { id: "408981434", name: "iMovie" }
         - { id: "404010395", name: "TextWrangler" }
         - { id: "1176895641", name: "Spark" }
+        - { id: "402433482", name: "TokenLock" }
         - { id: "557168941", name: "Tweetbot" }
         - { id: "402390998", name: "Linkinus" }
 
