@@ -98,6 +98,7 @@
         - { id: "402433482", name: "TokenLock" }
         - { id: "557168941", name: "Tweetbot" }
         - { id: "402390998", name: "Linkinus" }
+        - { id: "1278508951", name: "Trello" }
 
     - name: "[Spectacle] Setup Settings"
       file: path="{{ home_dir }}/Library/Application Support/Spectacle" state=directory
